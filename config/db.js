@@ -1,13 +1,3 @@
-// Day1
-// const mongoose = require('mongoose');
-
-// async function main() {
-//     await mongoose.connect(process.env.DB_CONNECT_STRING)
-// }
-
-
-// module.exports = main;
-
 import mongoose from "mongoose";
 
 let cached = global.mongoose
@@ -24,9 +14,19 @@ async function connectDB() {
             bufferCommands: false,
         }
 
-        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/products`, opts).then((mongoose) => {
-            return mongoose
-        })
+        // cached.promise = mongoose.connect(`${process.env.MONGODB_URI}/products`, opts).then((mongoose) => {
+        //     return mongoose
+        // })
+
+        // cached.promise = mongoose.connect(process.env.MONGODB_URI, opts).then((mongoose) => {
+        //     return mongoose
+        // })
+
+        const uri = process.env.MONGODB_URI;
+        if(!uri) {
+            throw new Error('MONGODB_URI is not defined');
+        }
+        cached.promise = mongoose.connect(uri, opts).then((mongoose) => mongoose);
     }
 
     cached.conn = await cached.promise
