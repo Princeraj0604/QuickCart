@@ -27,7 +27,18 @@ export const AppContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({})
 
     const fetchProductData = async () => {
-        setProducts(productsDummyData)
+        try{
+            const { data } = await axios.get('/api/product/list')
+            if(data.success) {
+                setProducts(data.products)
+            }
+            else{
+                toast.error(data.message)
+            }
+        }
+        catch(error){
+            toast.error(error.message)
+        }
     }
 
     const fetchUserData = async () => {
@@ -64,6 +75,18 @@ export const AppContextProvider = (props) => {
             cartData[itemId] = 1;
         }
         setCartItems(cartData);
+        if(user){
+            try{
+                const token = await getToken()
+
+                await axios.post('/api/cart/update',{cartData}, {headers: {Authorization: `bearer ${token}`}})
+                toast.success("Item added to cart")
+
+            }
+            catch(error){
+                toast.error(error.message)
+            }
+        }
 
     }
 
@@ -76,6 +99,18 @@ export const AppContextProvider = (props) => {
             cartData[itemId] = quantity;
         }
         setCartItems(cartData)
+        if(user){
+            try{
+                const token = await getToken()
+
+                await axios.post('/api/cart/update',{cartData}, {headers: {Authorization: `bearer ${token}`}})
+                toast.success("Cart updated successfully")
+
+            }
+            catch(error){
+                toast.error(error.message)
+            }
+        }
 
     }
 
@@ -93,7 +128,7 @@ export const AppContextProvider = (props) => {
         let totalAmount = 0;
         for (const items in cartItems) {
             let itemInfo = products.find((product) => product._id === items);
-            if (cartItems[items] > 0) {
+            if (itemInfo && cartItems[items] > 0) {
                 totalAmount += itemInfo.offerPrice * cartItems[items];
             }
         }
