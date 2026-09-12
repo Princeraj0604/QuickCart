@@ -1,8 +1,8 @@
 import { inngest } from "@/config/inngest";
 import Product from "@/models/Product";
+import User from "@/models/User";
 import { getAuth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server";
-
 
 
 export async function POST(request){
@@ -10,17 +10,29 @@ export async function POST(request){
         const {userId } = getAuth(request);
         const { address, items } = await request.json();
 
-        if(!address || items.length === 0){
+        if(!userId || !address || !items || items.length === 0){
             return NextResponse.json({ success:false, message: 'Invalid data'});
 
         }
 
         // calculate amount using items
-        const amount = await items.reduce(async (acc, item)=>{
-            const product = await Product.findById(item.product);
-            return acc + product.offerPrice * item.quantity;
+        // const amount = await items.reduce(async (acc, item)=>{
+        //     const product = await Product.findById(item.product);
+        //     return await acc + product.offerPrice * item.quantity;
 
-        },0)
+        // },0)
+
+
+        let amount=0;
+        for(const item of items){
+            const product = await Product.findById(item.product);
+
+            if(!product){
+                return NextResponse.json({success:false,message:"Product not found"},{status:404})
+            }
+             amount += product.offerPrice * item.quantity;
+           
+        }
 
         await inngest.send({
             name: 'order/created',
@@ -35,12 +47,25 @@ export async function POST(request){
 
         // clear user cart
         const user = await User.findById(userId)
-        user.cartItems = {}
-        await user.save()
+        if(user){
+            user.cartItems = {}
+            await user.save()
+        }
 
         return NextResponse.json({success:true, message:'Order Placed'})
     }
-    catch(error){
-        return NextResponse.json({success: false, message: "Internal Server Error"}, {status: 500})
-    }
+    // catch(error){
+    //     return NextResponse.json({success: false, message: "Internal Server Error"}, {status: 500})
+    // }
+    catch(error) {
+    console.error("ORDER CREATE ERROR:", error);
+
+    return NextResponse.json(
+        {
+            success: false,
+            message: error.message
+        },
+        { status: 500 }
+    );
+}
 }

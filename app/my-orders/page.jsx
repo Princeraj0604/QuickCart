@@ -6,22 +6,39 @@ import { useAppContext } from "@/context/AppContext";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Loading from "@/components/Loading";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const MyOrders = () => {
 
-    const { currency } = useAppContext();
+    const { currency, getToken, user } = useAppContext();
 
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const fetchOrders = async () => {
-        setOrders(orderDummyData)
-        setLoading(false);
+        try{
+            const token = await getToken()
+            const {data} = await axios.get('/api/order/list',{headers: {Authorization:`Bearer ${token}`}})
+
+            if(data.success){
+                setOrders(data.orders.reverse())
+                setLoading(false)
+            }
+            else{
+                toast.error(data.message)
+            }
+        }
+        catch(error){
+            toast.error(error.message);
+        }
     }
 
     useEffect(() => {
-        fetchOrders();
-    }, []);
+        if(user){
+            fetchOrders();
+        }
+    }, [user]);
 
     return (
         <>
@@ -39,8 +56,11 @@ const MyOrders = () => {
                                         alt="box_icon"
                                     />
                                     <p className="flex flex-col gap-3">
-                                        <span className="font-medium text-base">
+                                        {/* <span className="font-medium text-base">
                                             {order.items.map((item) => item.product.name + ` x ${item.quantity}`).join(", ")}
+                                        </span> */}
+                                        <span className="font-medium text-base">
+                                            {order.items.map((item) => item.productId.name + ` x ${item.quantity}`).join(", ")}
                                         </span>
                                         <span>Items : {order.items.length}</span>
                                     </p>
