@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeaderSlider = () => {
   const sliderData = [
@@ -8,24 +9,27 @@ const HeaderSlider = () => {
       id: 1,
       title: "Experience Pure Sound - Your Perfect Headphones Awaits!",
       offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
+      // buttonText1: "Buy now",
+      // buttonText2: "Find more",
+      buttonText: "Find more",
       imgSrc: assets.header_headphone_image,
     },
     {
       id: 2,
       title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
       offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
+      // buttonText1: "Shop Now",
+      // buttonText2: "Explore Deals",
+      buttonText: "Explore Deals",
       imgSrc: assets.header_playstation_image,
     },
     {
       id: 3,
       title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
       offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
+      // buttonText1: "Order Now",
+      // buttonText2: "Learn More",
+      buttonText: "Learn More",
       imgSrc: assets.header_macbook_image,
     },
   ];
@@ -61,7 +65,7 @@ const HeaderSlider = () => {
               <h1 className="max-w-lg md:text-[40px] md:leading-[48px] text-2xl font-semibold">
                 {slide.title}
               </h1>
-              <div className="flex items-center mt-4 md:mt-6 ">
+              {/* <div className="flex items-center mt-4 md:mt-6 ">
                 <button className="md:px-10 px-7 md:py-2.5 py-2 bg-orange-600 rounded-full text-white font-medium">
                   {slide.buttonText1}
                 </button>
@@ -69,6 +73,14 @@ const HeaderSlider = () => {
                   {slide.buttonText2}
                   <Image className="group-hover:translate-x-1 transition" src={assets.arrow_icon} alt="arrow_icon" />
                 </button>
+              </div> */}
+              <div className="flex items-center mt-4 md:mt-6">
+                <Link href="/all-products"
+                  className="group flex items-center gap-2 md:px-10 px-7 md:py-2.5 py-2 bg-orange-600 rounded-full text-white font-medium">
+                  {slide.buttonText}
+                {/* <Image className="group-hover:translate-x-1 transition"
+                  src={assets.arrow_icon} alt="arrow_icon"/> */}
+                </Link>
               </div>
             </div>
             <div className="flex items-center flex-1 justify-center">
