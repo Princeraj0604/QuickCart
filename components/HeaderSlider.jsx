@@ -20,7 +20,7 @@ const HeaderSlider = () => {
       offer: "Hurry up only few lefts!",
       // buttonText1: "Shop Now",
       // buttonText2: "Explore Deals",
-      buttonText: "Explore Deals",
+      buttonText: "Find more",
       imgSrc: assets.header_playstation_image,
     },
     {
@@ -29,7 +29,7 @@ const HeaderSlider = () => {
       offer: "Exclusive Deal 40% Off",
       // buttonText1: "Order Now",
       // buttonText2: "Learn More",
-      buttonText: "Learn More",
+      buttonText: "Find more",
       imgSrc: assets.header_macbook_image,
     },
   ];
