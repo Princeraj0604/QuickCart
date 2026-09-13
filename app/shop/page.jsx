@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 
-const Shop = () => {
+const ShopContent = () => {
   const searchParams = useSearchParams();
 
   const blogParam = searchParams.get("blog");
@@ -60,6 +60,7 @@ const Shop = () => {
 
       <main className="min-h-screen bg-gray-50 px-4 py-12 md:px-10 lg:px-32">
         <article className="max-w-5xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
+
           {/* Blog Image */}
           <div className="w-full">
             <Image
@@ -73,6 +74,7 @@ const Shop = () => {
 
           {/* Blog Content */}
           <div className="px-6 py-8 md:px-12 md:py-12">
+
             <p className="text-sm text-orange-600 font-medium uppercase tracking-wide">
               Latest From Our Blog
             </p>
@@ -96,6 +98,7 @@ const Shop = () => {
                 {blog.fullDescription}
               </p>
             </div>
+
           </div>
         </article>
       </main>
@@ -103,5 +106,18 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+const Shop = () => {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center">
+          <p className="text-gray-500">Loading...</p>
+        </div>
+      }
+    >
+      <ShopContent />
+    </Suspense>
+  );
+};
 
+export default Shop;
