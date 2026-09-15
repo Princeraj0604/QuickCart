@@ -1,12 +1,15 @@
 import { inngest } from "@/config/inngest";
 import Product from "@/models/Product";
 import User from "@/models/User";
+import connectDB from "@/config/db";
 import { getAuth } from "@clerk/nextjs/server"
 import { NextResponse } from "next/server";
 
 
 export async function POST(request){
     try{
+
+        await connectDB();
         const {userId } = getAuth(request);
         const { address, items } = await request.json();
 
@@ -27,9 +30,20 @@ export async function POST(request){
         for(const item of items){
             const product = await Product.findById(item.product);
 
+            // if(!product){
+            //     return NextResponse.json({success:false,message:"Product not found"},{status:404})
+            // }
             if(!product){
-                return NextResponse.json({success:false,message:"Product not found"},{status:404})
-            }
+    console.log("PRODUCT NOT FOUND:", item.product);
+
+    return NextResponse.json(
+        {
+            success: false,
+            message: `Product not found: ${item.product}`
+        },
+        { status: 404 }
+    );
+}
              amount += product.offerPrice * item.quantity;
            
         }

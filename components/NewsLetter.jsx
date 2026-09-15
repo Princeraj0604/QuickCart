@@ -1,70 +1,83 @@
-import React from "react";
-import Image from "next/image";
-import { assets } from "@/assets/assets";
+"use client";
+
+import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const NewsLetter = () => {
-  return (
-    <section className="w-full py-14 md:py-20">
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="bg-[#E6E9F2] rounded-2xl px-6 py-10 md:px-14 md:py-14">
-          
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            
-            {/* Logo */}
-            <div className="flex-shrink-0 flex items-center justify-center">
-              <Image
-                src={assets.logo}
-                alt="QuickCart Logo"
-                width={180}
-                height={60}
-                className="w-36 md:w-44 h-auto"
-              />
+
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!email.trim()) {
+            toast.error("Please enter your email address");
+            return;
+        }
+
+        if (!email.includes("@")) {
+            toast.error("Please enter a valid email address");
+            return;
+        }
+
+        toast.success("Thank you for joining the Mithila Journal");
+
+        setEmail("");
+    };
+
+    return (
+        <section className="w-full py-16 md:py-24">
+
+            <div className="rounded-2xl md:rounded-3xl bg-[#F4EFE6] px-6 py-12 sm:px-10 md:px-16 lg:px-20">
+
+                <div className="max-w-3xl mx-auto text-center">
+
+                    <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#8A5A32] font-medium">
+                        STAY CONNECTED
+                    </p>
+
+                    <h2 className="mt-3 font-serif text-3xl md:text-4xl lg:text-5xl text-[#2F241D]">
+                        A Little Mithila, In Your Inbox.
+                    </h2>
+
+                    <p className="mt-4 max-w-2xl mx-auto text-sm md:text-base leading-7 text-[#66574D]">
+                        Join the Mithila Journal for new collection updates,
+                        stories, gifting ideas, and occasional inspiration
+                        from the world of traditional flavours.
+                    </p>
+
+                    <form
+                        onSubmit={handleSubmit}
+                        className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mt-8"
+                    >
+
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your email address"
+                            className="flex-1 h-12 rounded-full border border-[#D8CABC] bg-white px-5 text-sm text-[#2F241D] outline-none placeholder:text-[#8A7A6D] focus:border-[#8A5A32]"
+                        />
+
+                        <button
+                            type="submit"
+                            className="h-12 rounded-full bg-[#6B3F24] px-7 text-sm font-medium text-white transition duration-300 hover:bg-[#2F241D]"
+                        >
+                            Subscribe
+                        </button>
+
+                    </form>
+
+                    <p className="mt-4 text-xs text-[#8A7A6D]">
+                        No unnecessary emails. Just thoughtful updates from Mithila.
+                    </p>
+
+                </div>
+
             </div>
 
-            {/* About Content */}
-            <div className="text-center md:text-left">
-              <p className="text-orange-600 font-medium mb-2">
-                More Than Just Shopping
-              </p>
-
-              <h2 className="text-2xl md:text-4xl font-semibold text-[#25324B] mb-4">
-                Your Everyday Shopping, Made Simple.
-              </h2>
-
-              <p className="text-gray-500/90 text-sm md:text-base leading-7 max-w-3xl">
-                At QuickCart, we believe shopping should be simple, fast, and
-                enjoyable. From everyday essentials to the latest gadgets,
-                fashion, and lifestyle products, we bring everything you need
-                together in one convenient place.
-              </p>
-
-              <p className="text-gray-500/90 text-sm md:text-base leading-7 max-w-3xl mt-3">
-                Our goal is to make online shopping effortless by offering
-                quality products, great value, and a smooth experience from
-                discovery to delivery.
-              </p>
-
-              {/* Small highlights */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-6">
-                <span className="px-4 py-2 bg-white rounded-full text-sm text-[#25324B]">
-                  Quality Products
-                </span>
-
-                <span className="px-4 py-2 bg-white rounded-full text-sm text-[#25324B]">
-                  Great Prices
-                </span>
-
-                <span className="px-4 py-2 bg-white rounded-full text-sm text-[#25324B]">
-                  Easy Shopping
-                </span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default NewsLetter;

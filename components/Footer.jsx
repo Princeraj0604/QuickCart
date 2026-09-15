@@ -1,55 +1,131 @@
+"use client";
+
 import React from "react";
-import { assets } from "@/assets/assets";
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  const router = useRouter();
+
   return (
-    <footer>
-      <div className="flex flex-col md:flex-row items-start justify-center px-6 md:px-16 lg:px-32 gap-10 py-14 border-b border-gray-500/30 text-gray-500">
-        <div className="w-4/5">
-          <Image className="w-28 md:w-32" src={assets.logo} alt="logo" />
-          <p className="mt-6 text-sm">
-            QuickCart is your trusted online shopping destination, bringing quality
-  products, great value, and everyday convenience all in one place. From
-  the latest electronics and gadgets to fashion, home essentials, and
-  lifestyle products, we make it easy to discover what you need and get it
-  delivered to your doorstep.
+    <footer className="bg-[#3B2A20] text-[#F4EFE6]">
+
+      <div className="flex flex-col md:flex-row items-start justify-between px-6 md:px-16 lg:px-32 gap-10 py-14">
+
+        {/* Brand */}
+        <div className="w-full md:w-2/5">
+          <button
+            onClick={() => router.push("/")}
+            className="font-serif text-3xl tracking-wide text-[#F4EFE6]"
+          >
+            MITHILA
+          </button>
+
+          <p className="mt-5 max-w-md text-sm leading-7 text-[#D8CABB]">
+            Mithila brings the timeless taste of traditional Thekua to modern
+            tables, celebrations, and gifting moments.
           </p>
         </div>
 
-        <div className="w-1/2 flex items-center justify-start md:justify-center">
-          <div>
-            <h2 className="font-medium text-gray-900 mb-5">Company</h2>
-            <ul className="text-sm space-y-2">
-              <li>
-                <a className="hover:underline transition" href="#">Home</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">About us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Contact us</a>
-              </li>
-              <li>
-                <a className="hover:underline transition" href="#">Privacy policy</a>
-              </li>
-            </ul>
+        {/* Explore */}
+        <div className="w-full md:w-1/5">
+          <h2 className="font-medium text-white mb-5">
+            Explore
+          </h2>
+
+          <ul className="text-sm space-y-3 text-[#D8CABB]">
+            <li>
+              <button
+                onClick={() => router.push("/")}
+                className="hover:text-white transition"
+              >
+                Home
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/all-products")}
+                className="hover:text-white transition"
+              >
+                Shop Thekua
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/")}
+                className="hover:text-white transition"
+              >
+                Collections
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/")}
+                className="hover:text-white transition"
+              >
+                Our Story
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* Customer Care */}
+        <div className="w-full md:w-1/5">
+          <h2 className="font-medium text-white mb-5">
+            Customer Care
+          </h2>
+
+          <ul className="text-sm space-y-3 text-[#D8CABB]">
+            <li>
+              <button className="hover:text-white transition">
+                Contact Us
+              </button>
+            </li>
+
+            <li>
+              <button className="hover:text-white transition">
+                FAQ
+              </button>
+            </li>
+
+            <li>
+              <button className="hover:text-white transition">
+                B2B Enquiries
+              </button>
+            </li>
+
+            <li>
+              <button className="hover:text-white transition">
+                Gifting
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* Get in Touch */}
+        <div className="w-full md:w-1/5">
+          <h2 className="font-medium text-white mb-5">
+            Get in Touch
+          </h2>
+
+          <div className="text-sm space-y-3 text-[#D8CABB]">
+            <p>+91 90000 00000</p>
+            <p>hello@mithila.example</p>
+            <p>India</p>
           </div>
         </div>
 
-        <div className="w-1/2 flex items-start justify-start md:justify-center">
-          <div>
-            <h2 className="font-medium text-gray-900 mb-5">Get in touch</h2>
-            <div className="text-sm space-y-2">
-              <p>+91 6205270749</p>
-              <p>contact@princeraj.dev</p>
-            </div>
-          </div>
-        </div>
       </div>
-      <p className="py-4 text-center text-xs md:text-sm">
-        Copyright 2026 © princeraj.dev All Right Reserved.
-      </p>
+
+      {/* Bottom */}
+      <div className="border-t border-[#6B5040] py-5 px-6">
+        <p className="text-center text-xs md:text-sm text-[#CDBBAA]">
+          © 2026 Mithila. All rights reserved.
+        </p>
+      </div>
+
     </footer>
   );
 };
