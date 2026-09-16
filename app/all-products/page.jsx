@@ -1,13 +1,16 @@
 'use client'
 
 import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ProductCard from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Loading from "@/components/Loading";
 import { useAppContext } from "@/context/AppContext";
 
-const AllProducts = () => {
+
+const AllProductsContent = ()=>  {
 const router = useRouter();
     const {
         products,
@@ -335,4 +338,13 @@ const router = useRouter();
     );
 };
 
+const AllProducts = () => {
+    return (
+        <Suspense fallback={<Loading />}>
+            <AllProductsContent />
+        </Suspense>
+    );
+};
+
 export default AllProducts;
+
