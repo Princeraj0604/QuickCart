@@ -8,9 +8,12 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#3B2A20] text-[#F4EFE6]">
-      <div className="grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 md:px-16 lg:grid-cols-4 lg:px-32">
+
+      <div className="grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 md:px-16 lg:grid-cols-5 lg:px-24 xl:px-32">
+
         {/* Brand */}
-        <div className="lg:pr-8">
+        <div className="lg:pr-6">
+
           <button
             onClick={() => router.push("/")}
             className="font-serif text-3xl tracking-wide text-[#F4EFE6]"
@@ -26,13 +29,18 @@ const Footer = () => {
           <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[#BFAE9F]">
             A Taste of Mithila, Crafted for Today
           </p>
+
         </div>
 
         {/* Explore */}
         <div>
-          <h2 className="mb-5 font-medium text-white">Explore</h2>
+
+          <h2 className="mb-5 font-medium text-white">
+            Explore
+          </h2>
 
           <ul className="space-y-3 text-sm text-[#D8CABB]">
+
             <li>
               <button
                 onClick={() => router.push("/")}
@@ -95,14 +103,20 @@ const Footer = () => {
                 Journal
               </button>
             </li>
+
           </ul>
+
         </div>
 
         {/* Customer Care */}
         <div>
-          <h2 className="mb-5 font-medium text-white">Customer Care</h2>
+
+          <h2 className="mb-5 font-medium text-white">
+            Customer Care
+          </h2>
 
           <ul className="space-y-3 text-sm text-[#D8CABB]">
+
             <li>
               <button
                 onClick={() => router.push("/contact")}
@@ -147,14 +161,51 @@ const Footer = () => {
                 Order Support
               </button>
             </li>
+
           </ul>
+
+        </div>
+
+        {/* Legal */}
+        <div>
+
+          <h2 className="mb-5 font-medium text-white">
+            Legal
+          </h2>
+
+          <ul className="space-y-3 text-sm text-[#D8CABB]">
+
+            <li>
+              <button
+                onClick={() => router.push("/privacy-policy")}
+                className="transition hover:text-white"
+              >
+                Privacy Policy
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/terms-conditions")}
+                className="transition hover:text-white"
+              >
+                Terms & Conditions
+              </button>
+            </li>
+
+          </ul>
+
         </div>
 
         {/* Get in Touch */}
         <div>
-          <h2 className="mb-5 font-medium text-white">Get in Touch</h2>
+
+          <h2 className="mb-5 font-medium text-white">
+            Get in Touch
+          </h2>
 
           <div className="space-y-4 text-sm text-[#D8CABB]">
+
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-[#A99483]">
                 Phone
@@ -186,24 +237,48 @@ const Footer = () => {
                 Based in
               </p>
 
-              <p className="mt-1">Mithila, India</p>
+              <p className="mt-1">
+                Mithila, India
+              </p>
             </div>
+
           </div>
+
         </div>
+
       </div>
 
       {/* Bottom */}
       <div className="border-t border-[#6B5040] px-6 py-5">
+
         <div className="flex flex-col items-center justify-between gap-2 text-center md:flex-row md:text-left">
+
           <p className="text-xs text-[#CDBBAA] md:text-sm">
             © 2026 Mithila. All rights reserved.
           </p>
 
-          <p className="text-xs text-[#A99483]">
-            Traditional taste. Thoughtfully crafted.
-          </p>
+          <div className="flex items-center gap-5">
+
+            <button
+              onClick={() => router.push("/privacy-policy")}
+              className="text-xs text-[#A99483] transition hover:text-white"
+            >
+              Privacy Policy
+            </button>
+
+            <button
+              onClick={() => router.push("/terms-conditions")}
+              className="text-xs text-[#A99483] transition hover:text-white"
+            >
+              Terms & Conditions
+            </button>
+
+          </div>
+
         </div>
+
       </div>
+
     </footer>
   );
 };
