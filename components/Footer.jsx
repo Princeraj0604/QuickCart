@@ -8,11 +8,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#3B2A20] text-[#F4EFE6]">
-
-      <div className="flex flex-col md:flex-row items-start justify-between px-6 md:px-16 lg:px-32 gap-10 py-14">
-
+      <div className="grid grid-cols-1 gap-10 px-6 py-14 md:grid-cols-2 md:px-16 lg:grid-cols-4 lg:px-32">
         {/* Brand */}
-        <div className="w-full md:w-2/5">
+        <div className="lg:pr-8">
           <button
             onClick={() => router.push("/")}
             className="font-serif text-3xl tracking-wide text-[#F4EFE6]"
@@ -24,19 +22,21 @@ const Footer = () => {
             Mithila brings the timeless taste of traditional Thekua to modern
             tables, celebrations, and gifting moments.
           </p>
+
+          <p className="mt-5 text-xs uppercase tracking-[0.2em] text-[#BFAE9F]">
+            A Taste of Mithila, Crafted for Today
+          </p>
         </div>
 
         {/* Explore */}
-        <div className="w-full md:w-1/5">
-          <h2 className="font-medium text-white mb-5">
-            Explore
-          </h2>
+        <div>
+          <h2 className="mb-5 font-medium text-white">Explore</h2>
 
-          <ul className="text-sm space-y-3 text-[#D8CABB]">
+          <ul className="space-y-3 text-sm text-[#D8CABB]">
             <li>
               <button
                 onClick={() => router.push("/")}
-                className="hover:text-white transition"
+                className="transition hover:text-white"
               >
                 Home
               </button>
@@ -45,7 +45,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => router.push("/all-products")}
-                className="hover:text-white transition"
+                className="transition hover:text-white"
               >
                 Shop Thekua
               </button>
@@ -53,8 +53,8 @@ const Footer = () => {
 
             <li>
               <button
-                onClick={() => router.push("/")}
-                className="hover:text-white transition"
+                onClick={() => router.push("/collections")}
+                className="transition hover:text-white"
               >
                 Collections
               </button>
@@ -62,70 +62,148 @@ const Footer = () => {
 
             <li>
               <button
-                onClick={() => router.push("/")}
-                className="hover:text-white transition"
+                onClick={() => router.push("/#our-story")}
+                className="transition hover:text-white"
               >
                 Our Story
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/#gifting")}
+                className="transition hover:text-white"
+              >
+                Gifting
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/#b2b")}
+                className="transition hover:text-white"
+              >
+                B2B
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/#journal")}
+                className="transition hover:text-white"
+              >
+                Journal
               </button>
             </li>
           </ul>
         </div>
 
         {/* Customer Care */}
-        <div className="w-full md:w-1/5">
-          <h2 className="font-medium text-white mb-5">
-            Customer Care
-          </h2>
+        <div>
+          <h2 className="mb-5 font-medium text-white">Customer Care</h2>
 
-          <ul className="text-sm space-y-3 text-[#D8CABB]">
+          <ul className="space-y-3 text-sm text-[#D8CABB]">
             <li>
-              <button className="hover:text-white transition">
+              <button
+                onClick={() => router.push("/contact")}
+                className="transition hover:text-white"
+              >
                 Contact Us
               </button>
             </li>
 
             <li>
-              <button className="hover:text-white transition">
+              <button
+                onClick={() => router.push("/faq")}
+                className="transition hover:text-white"
+              >
                 FAQ
               </button>
             </li>
 
             <li>
-              <button className="hover:text-white transition">
-                B2B Enquiries
+              <button
+                onClick={() => router.push("/shipping-delivery")}
+                className="transition hover:text-white"
+              >
+                Shipping & Delivery
               </button>
             </li>
 
             <li>
-              <button className="hover:text-white transition">
-                Gifting
+              <button
+                onClick={() => router.push("/returns-refunds")}
+                className="transition hover:text-white"
+              >
+                Returns & Refunds
+              </button>
+            </li>
+
+            <li>
+              <button
+                onClick={() => router.push("/order-support")}
+                className="transition hover:text-white"
+              >
+                Order Support
               </button>
             </li>
           </ul>
         </div>
 
         {/* Get in Touch */}
-        <div className="w-full md:w-1/5">
-          <h2 className="font-medium text-white mb-5">
-            Get in Touch
-          </h2>
+        <div>
+          <h2 className="mb-5 font-medium text-white">Get in Touch</h2>
 
-          <div className="text-sm space-y-3 text-[#D8CABB]">
-            <p>+91 90000 00000</p>
-            <p>hello@mithila.example</p>
-            <p>India</p>
+          <div className="space-y-4 text-sm text-[#D8CABB]">
+            <div>
+              <p className="text-xs uppercase tracking-[0.15em] text-[#A99483]">
+                Phone
+              </p>
+
+              <a
+                href="tel:+916205270749"
+                className="mt-1 inline-block transition hover:text-white"
+              >
+                +91 6205270749
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.15em] text-[#A99483]">
+                Email
+              </p>
+
+              <a
+                href="mailto:princeraj12450@gmail.com"
+                className="mt-1 inline-block transition hover:text-white"
+              >
+                princeraj12450@gmail.com
+              </a>
+            </div>
+
+            <div>
+              <p className="text-xs uppercase tracking-[0.15em] text-[#A99483]">
+                Based in
+              </p>
+
+              <p className="mt-1">Mithila, India</p>
+            </div>
           </div>
         </div>
-
       </div>
 
       {/* Bottom */}
-      <div className="border-t border-[#6B5040] py-5 px-6">
-        <p className="text-center text-xs md:text-sm text-[#CDBBAA]">
-          © 2026 Mithila. All rights reserved.
-        </p>
-      </div>
+      <div className="border-t border-[#6B5040] px-6 py-5">
+        <div className="flex flex-col items-center justify-between gap-2 text-center md:flex-row md:text-left">
+          <p className="text-xs text-[#CDBBAA] md:text-sm">
+            © 2026 Mithila. All rights reserved.
+          </p>
 
+          <p className="text-xs text-[#A99483]">
+            Traditional taste. Thoughtfully crafted.
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };

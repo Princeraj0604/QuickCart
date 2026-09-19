@@ -33,7 +33,7 @@ const Navbar = () => {
           Shop Thekua
         </Link>
 
-        <Link href="/all-products" className="hover:text-[#6B3F24] transition">
+        <Link href="/collections" className="hover:text-[#6B3F24] transition">
           Collections
         </Link>
 
@@ -150,7 +150,7 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/all-products"
+              href="/collections"
               onClick={closeMenu}
               className="hover:text-[#6B3F24] transition"
             >

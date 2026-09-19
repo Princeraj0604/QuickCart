@@ -4,7 +4,7 @@ import User from "../models/User";
 import Order from "@/models/Order";
 
 export const inngest = new Inngest({
-  id: "quickcart-next",
+  id: "mithila-next",
 });
 
 // Inngest Function to save user data to a database
@@ -84,35 +84,29 @@ export const syncUserDeletion = inngest.createFunction(
 // Inngest Function to create user's order in database
 export const createUserOrder = inngest.createFunction(
   {
-    id:'create-user-order',
-    triggers:{
+    id: "create-user-order",
+    triggers: {
       event: "order/created",
     },
-    // batchEvents:{
-    //   maxSize: 5,
-    //   timeout: '5s'
-    // }
   },
-  
-  async ({event}) =>{
-
+  async ({ event }) => {
     const order = {
-        userId: event.data.userId,
-        // items: event.data.items,
-        items: event.data.items.map((item) => ({
-            productId: item.product,
-            quantity: item.quantity
-        })),
-        amount: event.data.amount,
-        address: event.data.address,
-        date: event.data.date
-      }
-    
+      userId: event.data.userId,
+      items: event.data.items.map((item) => ({
+        productId: item.product,
+        quantity: item.quantity,
+      })),
+      amount: event.data.amount,
+      address: event.data.address,
+      date: event.data.date,
+    };
 
-    await connectDB()
-    // await Order.insertMany(orders)
-    await Order.create(order)
+    await connectDB();
+    await Order.create(order);
 
-    // return { success: true, processed: orders.length };
-    return { success: true, processed: 1 };  }
-)
+    return {
+      success: true,
+      processed: 1,
+    };
+  }
+);

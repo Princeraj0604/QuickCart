@@ -1,7 +1,9 @@
+"use client";
+
 import React from "react";
-import Image from "next/image";
-import { assets } from "@/assets/assets";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const About = () => {
   return (
@@ -9,108 +11,213 @@ const About = () => {
       <Navbar />
 
       <main className="min-h-screen bg-white">
+
         {/* Hero Section */}
-        <section className="bg-[#E6E9F2] py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-5 text-center">
-            <p className="text-orange-600 font-medium mb-3">
-              About QuickCart
+        <section className="border-b border-[#E9DFD0] bg-[#F4EFE6]">
+          <div className="mx-auto max-w-7xl px-6 py-20 text-center md:px-12 md:py-24 lg:px-16">
+
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#8A5A32]">
+              About MITHILA
             </p>
 
-            <h1 className="text-3xl md:text-5xl font-semibold text-gray-800">
-              Shopping Made Simple, Fast & Enjoyable
+            <h1 className="mx-auto mt-4 max-w-4xl font-serif text-4xl leading-tight text-[#2F241D] md:text-5xl lg:text-6xl">
+              A Taste of Mithila, Crafted for Today
             </h1>
 
-            <p className="max-w-2xl mx-auto mt-5 text-gray-500 leading-7">
-              QuickCart is your trusted online shopping destination,
-              bringing quality products, great value, and everyday
-              convenience all in one place.
+            <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-[#66574D] md:text-lg">
+              MITHILA brings the timeless taste of traditional Thekua to
+              modern tables, celebrations, gifting moments, and everyday
+              occasions.
             </p>
+
           </div>
         </section>
 
         {/* About Content */}
-        <section className="max-w-6xl mx-auto px-5 py-16 md:py-20">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            
-            {/* Logo */}
-            <div className="w-full md:w-1/3 flex justify-center">
-              <Image
-                src={assets.logo}
-                alt="QuickCart Logo"
-                width={220}
-                height={100}
-                className="w-40 md:w-52 h-auto"
-              />
+        <section className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20 lg:px-16">
+
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+
+            {/* Brand Block */}
+            <div className="flex justify-center">
+
+              <div className="flex aspect-square w-full max-w-md items-center justify-center rounded-3xl bg-[#F4EFE6] border border-[#E9DFD0]">
+
+                <div className="text-center">
+
+                  <p className="font-serif text-5xl tracking-wide text-[#2F241D] md:text-6xl">
+                    MITHILA
+                  </p>
+
+                  <div className="mx-auto mt-4 h-px w-20 bg-[#8A5A32]" />
+
+                  <p className="mt-4 text-xs uppercase tracking-[0.3em] text-[#8A5A32]">
+                    Traditional Thekua
+                  </p>
+
+                </div>
+
+              </div>
+
             </div>
 
             {/* Text */}
-            <div className="w-full md:w-2/3">
-              <p className="text-orange-600 font-medium mb-2">
+            <div>
+
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#8A5A32]">
                 Who We Are
               </p>
 
-              <h2 className="text-2xl md:text-4xl font-semibold text-gray-800 mb-5">
-                Your Everyday Shopping Partner
+              <h2 className="mt-3 font-serif text-3xl leading-tight text-[#2F241D] md:text-4xl">
+                Rooted in tradition, created for today
               </h2>
 
-              <p className="text-gray-500 leading-7 mb-4">
-                At QuickCart, we believe online shopping should be
-                effortless, reliable, and enjoyable. We bring a wide
-                selection of products together so you can find what you
-                need without the hassle.
+              <p className="mt-6 text-sm leading-7 text-[#66574D]">
+                MITHILA is built around the timeless tradition of Thekua,
+                a beloved sweet and snack from the Mithila region. Our
+                approach brings this familiar taste into a modern
+                ecommerce experience designed for everyday enjoyment,
+                celebrations, and thoughtful gifting.
               </p>
 
-              <p className="text-gray-500 leading-7">
-                From the latest electronics and gadgets to fashion,
-                lifestyle products, and everyday essentials, our goal is
-                to make every shopping experience smooth from discovery
-                to delivery.
+              <p className="mt-4 text-sm leading-7 text-[#66574D]">
+                From traditional favourites to carefully selected flavours
+                and gifting options, MITHILA brings together a collection
+                that celebrates the character of Thekua while keeping the
+                shopping experience simple, clear, and contemporary.
               </p>
+
+              <Link
+                href="/all-products"
+                className="mt-7 inline-flex rounded-full bg-[#6B3F24] px-7 py-3 text-sm font-medium text-white transition hover:bg-[#57321D]"
+              >
+                Explore Thekua
+              </Link>
+
             </div>
+
           </div>
+
         </section>
 
-        {/* Features */}
-        <section className="bg-gray-50 py-16">
-          <div className="max-w-6xl mx-auto px-5">
-            <h2 className="text-2xl md:text-3xl font-semibold text-center text-gray-800 mb-10">
-              Why Choose QuickCart?
-            </h2>
+        {/* Our Approach */}
+        <section className="border-y border-[#E9DFD0] bg-[#FAF8F4] py-16 md:py-20">
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-xl p-7 text-center shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Quality Products
-                </h3>
-                <p className="text-gray-500 leading-6">
-                  We focus on bringing reliable and quality products to
-                  your doorstep.
-                </p>
-              </div>
+          <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
 
-              <div className="bg-white rounded-xl p-7 text-center shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Great Value
-                </h3>
-                <p className="text-gray-500 leading-6">
-                  Discover products at competitive prices without
-                  compromising on quality.
-                </p>
-              </div>
+            <div className="mb-10 text-center">
 
-              <div className="bg-white rounded-xl p-7 text-center shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  Easy Shopping
-                </h3>
-                <p className="text-gray-500 leading-6">
-                  A simple and convenient shopping experience designed
-                  around you.
-                </p>
-              </div>
+              <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#8A5A32]">
+                Our Approach
+              </p>
+
+              <h2 className="mt-3 font-serif text-3xl text-[#2F241D] md:text-4xl">
+                What MITHILA stands for
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#66574D]">
+                We focus on keeping the experience simple while respecting
+                the traditional character of Thekua.
+              </p>
+
             </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+
+              {/* Tradition */}
+              <div className="rounded-2xl border border-[#E9DFD0] bg-white p-7 text-center">
+
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#F4EFE6] text-[#6B3F24]">
+                  <span className="font-serif text-xl">
+                    01
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-serif text-2xl text-[#2F241D]">
+                  Tradition
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-[#66574D]">
+                  Celebrating the familiar flavours, character, and cultural
+                  roots of Mithila Thekua.
+                </p>
+
+              </div>
+
+              {/* Craft */}
+              <div className="rounded-2xl border border-[#E9DFD0] bg-white p-7 text-center">
+
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#F4EFE6] text-[#6B3F24]">
+                  <span className="font-serif text-xl">
+                    02
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-serif text-2xl text-[#2F241D]">
+                  Thoughtful Craft
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-[#66574D]">
+                  Bringing together carefully presented Thekua selections
+                  for different tastes, occasions, and moments.
+                </p>
+
+              </div>
+
+              {/* Modern Experience */}
+              <div className="rounded-2xl border border-[#E9DFD0] bg-white p-7 text-center">
+
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#F4EFE6] text-[#6B3F24]">
+                  <span className="font-serif text-xl">
+                    03
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-serif text-2xl text-[#2F241D]">
+                  Modern Experience
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-[#66574D]">
+                  Making it easy to discover, shop, gift, and enjoy
+                  traditional Thekua online.
+                </p>
+
+              </div>
+
+            </div>
+
           </div>
+
         </section>
+
+        {/* Collection Section */}
+        <section className="mx-auto max-w-7xl px-6 py-16 text-center md:px-12 md:py-20 lg:px-16">
+
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-[#8A5A32]">
+            Discover MITHILA
+          </p>
+
+          <h2 className="mt-3 font-serif text-3xl text-[#2F241D] md:text-4xl">
+            Explore our collections
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#66574D]">
+            Discover traditional favourites, premium selections, special
+            variants, gifting options, and curated combinations.
+          </p>
+
+          <Link
+            href="/collections"
+            className="mt-7 inline-flex rounded-full border border-[#6B3F24] px-7 py-3 text-sm font-medium text-[#6B3F24] transition hover:bg-[#F4EFE6]"
+          >
+            View Collections
+          </Link>
+
+        </section>
+
       </main>
+
+      <Footer />
     </>
   );
 };

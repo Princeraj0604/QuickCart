@@ -1,55 +1,58 @@
-# Contributing to QuickCart
+# Contributing to MITHILA
 
-Thank you for considering contributing to **QuickCart** 
-We welcome contributions from everyone whether it's fixing a bug, adding a new feature or improving the design.
+Thank you for considering contributing to **MITHILA**.
+
+MITHILA is a modern single-vendor ecommerce website focused on traditional Mithila Thekua, gifting, collections, customer experience, and online ordering.
+
+We welcome contributions that help improve the website, whether it is fixing a bug, adding a useful feature, improving the user experience, or enhancing the overall design.
 
 ---
 
 ## How to Contribute
 
-1. **Fork** the repo
-2. **Create a new branch** (example: `git checkout -b feature/added-about-page`)
-3. **Make your changes** (UI, animations, pages, etc.)
-4. **Commit and push**
-5. **Open a Pull Request (PR)**
+1. **Fork** the repository.
+
+2. **Create a new branch**:
+   `git checkout -b feature/your-feature-name`
+
+3. **Make your changes**:
+   - UI improvements
+   - New pages
+   - New features
+   - Bug fixes
+   - Performance improvements
+   - Accessibility improvements
+
+4. **Test your changes** locally before committing.
+
+5. **Commit and push** your changes.
+
+6. **Open a Pull Request (PR)** with a clear description of your changes.
 
 ---
 
 ## Development Setup
 
-- Use **Next.js** and **Tailwind CSS**
-- Run `npm run dev` for local development
-- Keep code **clean, modular and reusable**
-- Prefer functional components and hooks
-- Follow existing folder structure and naming conventions
+MITHILA is built using modern web technologies.
 
----
+### Main Technologies
 
-## Contribution Guidelines
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Clerk Authentication
+- Cloudinary
+- Inngest
+- Git and GitHub
 
-- **Small, Focused PRs** → Don’t bundle unrelated changes in one PR  
-- **Commit Messages** → Use clear and descriptive messages (e.g., `feat: add product card animation`)  
-- **Code Style** → Run Prettier/ESLint (if configured) before committing  
-- **Accessibility** → Keep UI components accessible whenever possible  
-- **Discussions First** → For large changes (new features, big design changes), open an issue before creating a PR  
-- **Respect Others** → Follow the [Code of Conduct](./CODE_OF_CONDUCT.md)  
+### Run the Project Locally
 
----
+Install the project dependencies:
 
-## Ideas for Contribution
-
-You can:
-- Create new pages
-- Improve layouts
-- Add animations and transitions
-- Enhance responsiveness
-- Refactor components
-- Suggest new UI/UX ideas
-- Add themes or color variations
-- Introduce accessibility improvements
-- Add filtering/search features
-- Improve documentation
-
----
-
-We're excited to see your contributions 🚀
+```bash
+npm install

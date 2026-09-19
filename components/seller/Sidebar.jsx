@@ -43,6 +43,11 @@ const SideBar = () => {
       path: "/seller/reviews",
       icon: assets.review_icon || assets.product_list_icon,
     },
+    {
+      name: "Contact Messages",
+      path: "/seller/contact-messages",
+      icon: assets.product_list_icon,
+    },
   ];
   return (
     <div className="md:w-64 w-16 border-r border-[#E9DFD0] min-h-screen bg-white text-sm flex flex-col py-4">

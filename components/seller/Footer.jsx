@@ -10,13 +10,9 @@ const Footer = () => {
 
                     {/* Logo */}
                     <div className="flex items-center justify-center md:justify-start md:w-1/3">
-                        <Image
-                            src={assets.logo}
-                            alt="MITHILA"
-                            width={150}
-                            height={45}
-                            className="w-32 h-auto"
-                        />
+                        <div className="font-serif text-2xl md:text-3xl font-semibold tracking-wide text-[#2F241D]">
+                            MITHILA
+                        </div>
                     </div>
 
                     {/* Copyright */}
