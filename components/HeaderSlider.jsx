@@ -21,7 +21,7 @@ const HeaderSlider = () => {
       title: "A Timeless Tradition, Made for Today.",
       description:
         "Discover thoughtfully crafted Thekua inspired by the flavours, stories, and traditions passed down through Mithila.",
-      buttonText: "Explore Collection",
+      buttonText: "Shop Thekua",
       imgSrc: "/images/thekua/hero-premium.png",
     },
     {
@@ -91,7 +91,7 @@ const HeaderSlider = () => {
                   </Link>
 
                   <Link
-                    href="/all-products"
+                    href="/collections"
                     className="hidden sm:inline-flex items-center justify-center rounded-full border border-[#6B3F24] px-7 md:px-8 py-3.5 text-sm font-medium text-[#6B3F24] transition duration-300 hover:bg-white"
                   >
                     View Collection
